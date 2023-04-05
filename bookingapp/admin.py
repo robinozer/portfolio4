@@ -13,6 +13,7 @@ class BookingAdmin(admin.ModelAdmin):
     def accept_booking(self, request, queryset):
         queryset.update(accepted=True)
 
+
 """
 
 from django.contrib import admin
@@ -26,6 +27,4 @@ class BookingAdmin(SummernoteModelAdmin):
     list_display = ('date_time', 'guests', 'accepted', 'first_name')
     search_fields = ['first_name']
     list_filter = ('accepted', 'date_time')
-
-
 """
