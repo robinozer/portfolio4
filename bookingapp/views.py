@@ -7,7 +7,7 @@ class BookingListView(generic.ListView):
     model = Booking
     queryset = Booking.objects.order_by("-date_time")
     template_name = 'index.html'
-    paginate_by = 8
+    paginate_by = 6
 
     # Return the bookings for the currently logged in user
     def get_queryset(self):
