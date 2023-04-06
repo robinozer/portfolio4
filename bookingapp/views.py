@@ -9,6 +9,6 @@ class BookingListView(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
-    # Return the bookings for the currently logged in user
-    def get_queryset(self):
-        return Booking.objects.filter(user=self.request.user)
+
+
+

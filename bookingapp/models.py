@@ -9,7 +9,7 @@ class Booking(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    date_time = models.DateTimeField(auto_now=True)
+    date_time = models.DateTimeField(auto_now=False)
     guests = models.IntegerField()  # The number of guests for the booking
     special_request = models.TextField()
     accepted = models.BooleanField(default=False)
