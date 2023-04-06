@@ -2,10 +2,8 @@ from .models import Booking
 from django import forms
 
 
-class BookingForm(forms.Form):
-    model = Booking
-    first_name = forms.CharField(label='First name', max_length=100)
-    email = forms.EmailField(label='Email')
-    date_time = forms.DateTimeField()
-    guests = forms.IntegerField()
-    special_request = forms.Textarea()
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model: Booking
+        fields = ('first_name', 'email', 'date_time', 'guests', 'special_request',)
+        widgets = {'date_time': forms.DateTimeInput(attrs={'type': 'datetime-local'})}
