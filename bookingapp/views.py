@@ -4,6 +4,7 @@ from django.views import generic, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import BookingForm
+from django.urls import reverse_lazy
 from .models import Booking
 
 
@@ -23,7 +24,7 @@ class BookingListView(LoginRequiredMixin, generic.ListView):
 class BookingCreateView(LoginRequiredMixin, CreateView):
     model = Booking
     fields = ['first_name', 'email', 'date_time', 'guests', 'special_request']
-    success_url = '/thank_you/'
+    success_url = reverse_lazy('thank_you_view/')
     template_name = 'booking_form.html'
 
     # Set the current user as the user for the new booking
@@ -31,6 +32,7 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         response = super().form_valid(form)
         return response
+
 
 def thank_you_view(request):
     return render(request, 'thank_you_view.html')
