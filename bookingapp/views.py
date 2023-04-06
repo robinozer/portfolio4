@@ -33,4 +33,4 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
         return response
 
 def thank_you_view(request):
-    return render(request, 'thank_you.html')
+    return render(request, 'thank_you_view.html')

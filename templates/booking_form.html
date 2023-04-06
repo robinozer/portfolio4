@@ -5,26 +5,22 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-        <h3>Make a booking</h3>
-  
-        <p>Please enter your details.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-        <form class="signup" id="booking_form" method="post" action="{% url 'booking_form' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <button class="btn btn-signup right" type="submit">Make a booking &raquo;</button>
-        </form>
-      </div>
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3>Make a booking</h3>
+      <p>Please enter your details.</p>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <form class="signup" id="booking_form" method="post" action="{% url 'booking_form' %}?next={% url 'thank_you_view' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{% url 'thank_you_view' %}"/>
+        <button class="btn btn-signup right" type="submit">Make a booking &raquo;</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-
-{%endblock%}
+{% endblock %}
