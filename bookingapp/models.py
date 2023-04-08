@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 CONFIRMATION = ((0, "Unconfirmed"), (1, "Confirmed"))
 
@@ -10,7 +11,7 @@ class Booking(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
     date_time = models.DateTimeField(auto_now=False)
-    guests = models.IntegerField()  # The number of guests for the booking
+    guests = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(8)])
     special_request = models.TextField()
     accepted = models.BooleanField(default=False)
 
