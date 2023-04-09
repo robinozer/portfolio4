@@ -4,11 +4,11 @@
 
 <div class="container-fluid">
     <div class="row">
-    <!-- Bookings Column  div class="col-12 mt-3 left">-->   
-    {% if user.is_authenticated %}
-    {% for booking in booking_list %}
+        <!-- Bookings Column  div class="col-12 mt-3 left">-->
+        {% if user.is_authenticated %}
+        {% for booking in booking_list %}
         <div class="col-md-4">
-                <div class="card mb-4">
+            <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">Booking for {{ booking.guests }} guests</h2>
                     <p class="card-text">Date and time: {{ booking.date_time }}</p>
@@ -19,10 +19,11 @@
                     <p class="card-text text-muted h6">Special requests: {{  booking.special_request  }}</p>
                 </div>
                 <a href="{% url 'bookingapp:booking_edit' booking.id %}" role="button">Edit</a>
+                <a href="{% url 'bookingapp:booking_delete' booking.id %}" role="button">Delete</a>
             </div>
         </div>
-    {% endfor %}
-    {% endif %}     
+        {% endfor %}
+        {% endif %}
     </div>
 </div>
 
