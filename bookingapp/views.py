@@ -47,12 +47,19 @@ def edit_booking(request):
 class BookingUpdateView(LoginRequiredMixin, UpdateView):
     model = Booking
     fields = ['first_name', 'email', 'date_time', 'guests', 'special_request']
-    success_url = reverse_lazy('thank_you_view/')
+    success_url = reverse_lazy('bookingapp:booking_list')
     template_name = 'booking_edit.html'
-    booking = Booking.objects.get(id=id)
 
-    # Set the current user as the user for the new booking
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        booking = get_object_or_404(Booking, pk=pk)
+        if booking.user != self.request.user:
+            raise Http404
+        return booking
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         response = super().form_valid(form)
-        return response
+        booking = form.save()
+        messages.success(self.request, 'Booking updated successfully')
+        return redirect('bookingapp:booking_list')

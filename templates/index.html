@@ -8,7 +8,6 @@
     {% if user.is_authenticated %}
     {% for booking in booking_list %}
         <div class="col-md-4">
-                <a href="{% url 'booking_edit' booking.id %}" role="button">Edit</a>
                 <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">Booking for {{ booking.guests }} guests</h2>
@@ -19,6 +18,7 @@
                         Booking accepted: {{ booking.accepted }}</p>
                     <p class="card-text text-muted h6">Special requests: {{  booking.special_request  }}</p>
                 </div>
+                <a href="{% url 'booking_edit' booking.id %}" role="button">Edit</a>
             </div>
         </div>
     {% endfor %}
