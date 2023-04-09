@@ -68,10 +68,12 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
         form.instance.user = self.request.user
         response = super().form_valid(form)
         bookings = self.find_booking(form)
-#        if bookings and bookings.id != self.kwargs.get('pk'):
-#            form.add_error('date_time', 'A booking already exists for this date and time.')
-#            return form_invalid(form)
+        if bookings and bookings.id != self.kwargs.get('pk'):
+            form.add_error('date_time', 'A booking already exists for this date and time.')
+            return form_invalid(form)
         return response
 
     def find_booking(self, form):
         return Booking.objects.filter(user=self.request.user, date_time=form['date_time'])
+
+
