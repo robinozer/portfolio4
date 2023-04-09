@@ -16,11 +16,16 @@
 
       <form class="signup" id="booking_form" method="post">
         {% csrf_token %}
-        <p><label for="id_first_name">First name:</label> <input type="text" name="first_name" value="" maxlength="50" required="" id="id_first_name"></p>
-        <p><label for="id_email">Email:</label> <input type="email" name="email" value="" maxlength="254" required="" id="id_email"></p>
-        <p><label for="id_date_time">Date time:</label> <input type="datetime-local" name="date_time" value="" required="" id="id_date_time"></p>
-        <p><label for="id_guests">Guests:</label> <input type="number" name="guests" value="" required="" id="id_guests"></p>
-        <p><label for="id_special_request">Special request:</label> <textarea name="special_request" cols="40" rows="4" id="id_special_request"></textarea></p>
+        <p><label for="id_first_name">First name:</label> <input type="text" name="first_name" value="" maxlength="50"
+            required="" id="id_first_name"></p>
+        <p><label for="id_email">Email:</label> <input type="email" name="email" value="" maxlength="254" required=""
+            id="id_email"></p>
+        <p><label for="id_date_time">Date time:</label> <input type="datetime-local" name="date_time" value=""
+            required="" id="id_date_time"></p>
+        <p><label for="id_guests">Guests:</label> <input type="number" name="guests" value="" required=""
+            id="id_guests"></p>
+        <p><label for="id_special_request">Special request:</label> <textarea name="special_request" cols="40" rows="4"
+            id="id_special_request"></textarea></p>
         <button class="btn btn-signup right" type="submit">Make a booking</button>
       </form>
     </div>

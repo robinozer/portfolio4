@@ -25,20 +25,20 @@ class BookingListView(LoginRequiredMixin, generic.ListView):
 class BookingCreateView(LoginRequiredMixin, CreateView):
     model = Booking
     fields = ['first_name', 'email', 'date_time', 'guests', 'special_request']
+    # reverse_lazy('bookingapp:home')
     success_url = reverse_lazy('bookingapp:home')
     template_name = 'booking_form.html'
 
-    # Set the current user as the user for the new booking
     def form_valid(self, form):
         form.instance.user = self.request.user
         response = super().form_valid(form)
-        if bookings:
-            form.errors.append('eroror messagehere ')
-            return form_invalid(form)
+        # if bookings:
+        #    form.add_error('date_time', 'A booking already exists for this date and time.')
+        #    return form_invalid(form)
         return response
 
-    def find_booking(self, form):   
-        return Booking.objects.filter(user =self.request.user, date_time=form['date_time']);    
+    def find_booking(self, form):
+        return Booking.objects.filter(user=self.request.user, date_time=form['date_time'])
 
 
 # User redirect page after submitting booking
@@ -67,10 +67,11 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         response = super().form_valid(form)
-        bookings = find_booking(form)
-        if bookings and bookings.id != self.kwargs.get('pk'):
-            form.error.append('eroror messagehere ')
+        bookings = self.find_booking(form)
+#        if bookings and bookings.id != self.kwargs.get('pk'):
+#            form.add_error('date_time', 'A booking already exists for this date and time.')
+#            return form_invalid(form)
         return response
 
-    def find_booking(self, form):   
-        return Booking.objects.filter(user =self.request.user, date_time=form['date_time']);
+    def find_booking(self, form):
+        return Booking.objects.filter(user=self.request.user, date_time=form['date_time'])
