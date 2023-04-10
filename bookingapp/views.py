@@ -11,7 +11,6 @@ from .models import Booking
 
 class BookingListView(LoginRequiredMixin, generic.ListView):
     model = Booking
-
     template_name = 'index.html'
     paginate_by = 6
 
