@@ -45,12 +45,6 @@ __Admin dashboard for site owners to view and manage all bookings__
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to create screenshot of website on different screen sizes.
 
 
-## Testing ##
-
-### Code validation ###
-- No errors were returned when passing the Python code through the [PEP8 Python Linter](https://pep8ci.herokuapp.com/)
-- No errors were returned when passing the CSS file through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator)
-
 ![SCREENSHOT OF PYTHON VALIDATION](media/screenshot-python-linter.png)
 
 ### Manual testing ###
@@ -60,72 +54,7 @@ I have manually tested this project by doing the following:
 - Used PEP8 Python validator and returned the code with no errors. Some comments regarding indentation were ignored as the validator did not recognize multi-line print statements.
 - Tested the code in my local development environment as well as in the Heroku deployed app.
 
-### Test cases ###
 
-#### Quiz Introduction ####
-
-- 
-
-- Testing performed: enter the URL of deployed page and click Run Program.
-
-- Expected outcome: displays welcome message with instructions on how to play the quiz, and a prompt to press Enter to start.
-
-- Result: as expected.
-
-- Test passed.
-
-![SCREENSHOT OF QUIZ INTRODUCTION](media/screenshot-introduction.png)
-
-#### Quiz Start ####
-
-- Testing performed: press Enter after the introduction to start the quiz.
-
-- Expected outcome: display first question along with 4 answer options. Display instruction on how to answer the question.
-
-- Result: as expected.
-
-- Test passed.
-
-
-![SCREENSHOT OF QUIZ START](media/screenshot-start-quiz.png)
-
-#### Enter valid answer option ####
-
-- Testing performed: entering a valid number when answering a question (1-4).
-
-- Expected outcome: See if my answer is correct, display the correct option, and my score.
-
-- Result: as expected.
-
-- Test passed.
-
-![SCREENSHOT OF VALID ANSWERS, THIS ONE INCORRECT](media/screenshot-valid-incorrect-answer.png)
-
-![SCREENSHOT OF VALID ANSWERS, THIS ONE CORRECT](media/screenshot-valid-correct-answer.png)
-
-#### Enter invalid answer option ####
-
-- Testing performed: entering an invalid character (e.g. letter S) when answering a question.
-
-- Expected outcome: alert message prompting me to re-enter a valid answer option.
-
-- Result: as expected.
-
-- Test passed.
-
-![SCREENSHOT OF INVALID ANSWER](media/screenshot-invalid-answer.png)
-
-#### End of quiz ####
-
-- Testing performed: answer all questions.
-
-- Expected outcome: display message showing final score.
-
-- Result: as expected.
-
-- Test passed.
-
-![SCREENSHOT OF QUIZ END](media/screenshot-end-quiz.png)
 
 ### Fixed bugs ###
 
