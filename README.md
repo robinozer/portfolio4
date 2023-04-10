@@ -55,6 +55,18 @@ I have manually tested this project by doing the following:
 - Tested the code in my local development environment as well as in the Heroku deployed app.
 
 
+## Testing ##
+
+
+### Test cases ###
+
+
+
+
+### Code validation ###
+- No errors were returned when passing the Python code through the [PEP8 Python Linter](https://pep8ci.herokuapp.com/)
+- No errors were returned when passing the CSS file through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+- All pages were run through [W3C HTML Validator](https://jigsaw.w3.org/css-validator/validator)
 
 ### Fixed bugs ###
 

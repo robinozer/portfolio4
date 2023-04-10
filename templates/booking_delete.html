@@ -19,7 +19,7 @@
                 <p><label for="id_email">Email:</label> <input type="email" name="email" value="{{ booking.email }}"
                         maxlength="254" required="" id="id_email" readonly></p>
                 
-                <p><label for="{{ form.date_time.id_for_label }}">Date and time: </label><input type="datetime-local"
+                <p><label for="id_date_time">Date and time: </label><input type="datetime-local"
                         name="date_time" value="{{ booking.date_time|date:'Y-m-d\TH:i' }}" required="" id="id_date_time"
                         readonly></p>
 
