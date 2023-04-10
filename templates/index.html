@@ -16,10 +16,9 @@
                         {{ booking.last_name }}</p>
                     <p class="card-text text-muted h6">
                         Booking accepted: {{ booking.accepted }}</p>
-                    <p class="card-text text-muted h6">Special requests: {{  booking.special_request  }}</p>
                 </div>
-                <a href="{% url 'bookingapp:booking_edit' booking.id %}" role="button">Edit</a>
-                <a href="{% url 'bookingapp:booking_delete' booking.id %}" role="button">Delete</a>
+                <a class="nav-link" href="{% url 'bookingapp:booking_edit' booking.id %}" role="button">Edit booking</a>
+                <a class="nav-link" href="{% url 'bookingapp:booking_delete' booking.id %}" role="button">Delete booking</a>
             </div>
         </div>
         {% endfor %}

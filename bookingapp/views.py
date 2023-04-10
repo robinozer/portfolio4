@@ -35,6 +35,20 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
         #    return form_invalid(form)
         return response
 
+
+# newly added
+    def clean_guests(self):
+        guests = self.cleaned_data.get('guests')
+        if guests < 1 or guests > 8:
+            raise forms.ValidationError("Please enter a number between 1 and 8 for the number of guests.")
+        return guests
+   
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
+
+#remove after testing
+
     def find_booking(self, form):
         return Booking.objects.filter(user=self.request.user, date_time=form['date_time'])
 

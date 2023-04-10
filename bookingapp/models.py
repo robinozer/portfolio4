@@ -11,7 +11,8 @@ class Booking(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
     date_time = models.DateTimeField(auto_now=False)
-    guests = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(8)])
+#    guests = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(8)])
+    guests = models.IntegerField(validators=[MinValueValidator(1, message="Please enter a value between 1-8"), MaxValueValidator(8, message="Please enter a value between 1-8")])
     special_request = models.TextField()
     accepted = models.BooleanField(default=False)
 
