@@ -107,7 +107,7 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
+    background-color: #bb2328;
     color: #fff;
 }
 
@@ -139,4 +139,12 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.booking-card {
+    border: 1px solid black;
+}
+
+.btn-edit {
+    background-color: #445261;
 }
