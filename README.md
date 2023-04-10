@@ -1,5 +1,6 @@
 # Django Restaurant Booking System #
 
+
 ## Purpose of the project ##
 The Restaurant Booking System is a Full-Stack web application that allows users to make reservations at a restaurant online. Users can create an account, log in, and then make, modify, or cancel a booking for a particular date and time. The application is built using Python and Django as the MVC framework, along with HTML, CSS, and JavaScript for the Front-End. The application uses a relational database (PostgreSQL) to store and manage data about users and bookings.
 
@@ -35,6 +36,7 @@ __Admin dashboard for site owners to view and manage all bookings__
 -   Admin can create, view, update and delete bookings.
 -   Admin can create, view, update and delete users.
 
+
 ## Further Features to implement ##
 
 - The home page can display a menu, information about the restaurant, a picture, opening hours and more advanced styling to make the experience more lively.
@@ -63,15 +65,6 @@ All of these fields work together to represent a single booking made by a user. 
 The **Booking** table also has a unique constraint on the combination of **date_time** and **email**, ensuring that no two bookings can be made with the same date and time, and email address.
 
 
-
-## Testing ##
-
-### Manual testing ###
-I have manually tested this project by doing the following:
-- Entering invalid inputs into the form (pressing Enter without any input, entering invalid numerals, entering empty space in the special requirements text field).
-- Tried each feature step by step, and documented in test cases below.
-- Tested the code in my local development environment as well as in the Heroku deployed app.
-
 ## Agile development and User stories ##
 Using principles of design thinking, the following goals were set for this project:
 - Make the signup process as smooth as possible
@@ -81,7 +74,7 @@ Using principles of design thinking, the following goals were set for this proje
 These led to this problem statement: How do I develop a restaurant booking system that provides the functionality above to a user?
 
 The problem statement was then used to map out the features I would need. I then created user stories corresponding to these features.
-GitHub (specifically a custom user story template, issues and digital KanBan board) was used as an agile tool for creating and managing user stories, assigning them labels and tracking their progress throughout development. The board also helped with breaking down the project into sprints, keeping feature development organized (as each feature had to be created, tested and validated before the next one was created). Each sprint had an estimated time it would take to develop it, further helping keep the project systematic and organized in terms of time.
+GitHub (specifically a custom user story template, issues and digital KanBan board) was used as an agile tool for creating and managing user stories, assigning them labels and tracking their progress throughout development. The board also helped with breaking down the project into sprints, keeping feature development organized (as each feature had to be created, tested and validated before moving on to the next one). Each sprint had an estimated time and estimated amount of work it would take to develop it, further helping to keep the project systematic and organized in terms of time.
 
 -   As a site admin I can create, view, edit and delete bookings so that I can manage my restaurant
 -   As a site admin I can accept bookings so that I can choose which bookings to take
@@ -92,6 +85,15 @@ GitHub (specifically a custom user story template, issues and digital KanBan boa
 - Prevent double booking
 - prepulate fields with previous information when editing a booking
 - Don't allow bookings in past dates
+
+
+## Testing ##
+
+### Manual testing ###
+I have manually tested this project by doing the following:
+- Entering invalid inputs into the form (pressing Enter without any input, entering invalid numerals, entering empty space in the special requirements text field).
+- Tried each feature step by step, and documented in test cases below.
+- Tested the code in my local development environment as well as in the Heroku deployed app.
 
 ### Test cases ###
 
@@ -121,6 +123,7 @@ GitHub (specifically a custom user story template, issues and digital KanBan boa
 - Test passed.
 
 ![SCREENSHOT OF ](media/.png)
+
 
 ### Code validation ###
 - No errors were returned when passing every .py file through the [PEP8 Python Linter](https://pep8ci.herokuapp.com/) (see screenshots for models.py and views.py in linter).
