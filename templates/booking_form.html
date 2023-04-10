@@ -63,7 +63,14 @@
           <label for="id_special_request">Special request:</label>
           <textarea name="special_request" cols="40" rows="4" id="id_special_request" required=""></textarea>
         </p>
-
+        {% if form.special_request.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.special_request.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
         <button class="btn btn-signup right" type="submit">Make a booking</button>
       </form>
     </div>
