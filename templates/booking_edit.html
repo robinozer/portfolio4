@@ -22,6 +22,13 @@
             maxlength="254" required="" id="id_email"></p>
         <p><label for="{{ form.date_time.id_for_label }}">Date time: </label><input type="datetime-local"
             name="date_time" value="{{ booking.date_time|date:'Y-m-d\TH:i' }}" required="" id="id_date_time"></p>
+            {% if form.date_time.errors %}
+            <div class="alert alert-danger">
+              {% for error in form.date_time.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
 
         <p><label for="id_guests">Guests:</label> <input type="number" name="guests" value="{{ booking.guests }}"
             required="" id="id_guests"></p>

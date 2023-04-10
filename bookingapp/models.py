@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
-
-CONFIRMATION = ((0, "Unconfirmed"), (1, "Confirmed"))
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 
 class Booking(models.Model):
@@ -10,8 +10,10 @@ class Booking(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    date_time = models.DateTimeField(auto_now=False)
-#    guests = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(8)])
+    # date_time = models.DateTimeField(auto_now=False)
+    date_time = models.DateTimeField(validators=[MinValueValidator(limit_value=timezone.now() + timedelta(minutes=1), message=('Please choose a date and time in the future.'))])
+    # date_time = models.DateTimeField(validators=[
+        # MinValueValidator(limit_value=datetime.now() + timedelta(minutes=1), message=_('Please choose a date and time in the future.'))])
     guests = models.IntegerField(validators=[MinValueValidator(1, message="Please enter a value between 1-8"), MaxValueValidator(8, message="Please enter a value between 1-8")])
     special_request = models.TextField()
     accepted = models.BooleanField(default=False)
