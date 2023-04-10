@@ -30,23 +30,7 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         response = super().form_valid(form)
-        # if bookings:
-        #    form.add_error('date_time', 'A booking already exists for this date and time.')
-        #    return form_invalid(form)
         return response
-
-
-"""def clean_guests(self):
-        guests = self.cleaned_data.get('guests')
-        if guests < 1 or guests > 8:
-            raise forms.ValidationError("Please enter a number between 1 and 8 for the number of guests.")
-        return guests
-            def form_invalid(self, form):
-        print(form.errors)
-        return super().form_invalid(form)
-    def find_booking(self, form):
-        return Booking.objects.filter(user=self.request.user, date_time=form['date_time'])
-    """
 
 
 # Update an existing booking
@@ -66,13 +50,6 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         response = super().form_valid(form)
-        # currDateTime = datetime.strptime(form['date_time']).date()
-        # currDateTime = datetime.date(form['date_time'])
-        # myBookings = Booking.objects.filter(user=self.request.user)
-        # doubleBookings = myBookings.object.filter(date_time=currDateTime)
-#       if bookings and bookings.id != self.kwargs.get('pk'):
-#           form.error.append('A booking already exists for this date and time.')
-#           return form_invalid(form)
         return response
 
     def find_booking(self, form):
