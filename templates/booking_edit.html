@@ -22,40 +22,40 @@
             maxlength="254" required="" id="id_email"></p>
         <p><label for="{{ form.date_time.id_for_label }}">Date and time: </label><input type="datetime-local"
             name="date_time" value="{{ booking.date_time|date:'Y-m-d\TH:i' }}" required="" id="id_date_time"></p>
-            {% if form.date_time.errors %}
-            <div class="alert alert-danger">
-              {% for error in form.date_time.errors %}
-                <p>{{ error }}</p>
-              {% endfor %}
-            </div>
-          {% endif %}
-          {% if form.non_field_errors %}
-          <div class="alert alert-danger">
-            {% for error in form.non_field_errors %}
-              <p>{{ error }}</p>
-            {% endfor %}
-          </div>
+        {% if form.date_time.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.date_time.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+          {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
         {% endif %}
 
         <p><label for="id_guests">Guests:</label> <input type="number" name="guests" value="{{ booking.guests }}"
             required="" id="id_guests"></p>
-            {% if form.guests.errors %}
-            <div class="alert alert-danger">
-              {% for error in form.guests.errors %}
-                <p>{{ error }}</p>
-              {% endfor %}
-            </div>
-          {% endif %}
+        {% if form.guests.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.guests.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
 
         <p><label for="id_special_request">Special request:</label> <textarea name="special_request" cols="40" rows="4"
             id="id_special_request">{{ booking.special_request }}</textarea></p>
-            {% if form.special_request.errors %}
-            <div class="alert alert-danger">
-              {% for error in form.special_request.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
-            {% endif %}
+        {% if form.special_request.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.special_request.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
         <button class="btn btn-outline-secondary" type="submit">Submit changes</button>
       </form>
     </div>

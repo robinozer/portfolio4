@@ -18,17 +18,16 @@
 
                 <p><label for="id_email">Email:</label> <input type="email" name="email" value="{{ booking.email }}"
                         maxlength="254" required="" id="id_email" readonly></p>
-                
-                <p><label for="id_date_time">Date and time: </label><input type="datetime-local"
-                        name="date_time" value="{{ booking.date_time|date:'Y-m-d\TH:i' }}" required="" id="id_date_time"
-                        readonly></p>
+
+                <p><label for="id_date_time">Date and time: </label><input type="datetime-local" name="date_time"
+                        value="{{ booking.date_time|date:'Y-m-d\TH:i' }}" required="" id="id_date_time" readonly></p>
 
                 <p><label for="id_guests">Guests:</label> <input type="number" name="guests"
                         value="{{ booking.guests }}" required="" id="id_guests" readonly></p>
 
                 <p><label for="id_special_request">Special request:</label> <textarea name="special_request" cols="40"
                         rows="4" id="id_special_request" readonly>{{ booking.special_request }}</textarea></p>
-                        
+
                 <button class="btn btn-outline-secondary" type="submit">Confirm delete</button>
             </form>
         </div>

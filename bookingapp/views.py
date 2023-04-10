@@ -17,7 +17,8 @@ class BookingListView(LoginRequiredMixin, generic.ListView):
     # Return the bookings for the currently logged in user
     def get_queryset(self):
         if self.request.user.is_authenticated:
-            return Booking.objects.filter(user=self.request.user).order_by("-date_time")
+            return Booking.objects.filter(user=self.request.user)\
+                .order_by("-date_time")
 
 
 # Create a new booking
