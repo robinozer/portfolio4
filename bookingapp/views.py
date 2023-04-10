@@ -25,7 +25,6 @@ class BookingListView(LoginRequiredMixin, generic.ListView):
 class BookingCreateView(LoginRequiredMixin, CreateView):
     model = Booking
     fields = ['first_name', 'email', 'date_time', 'guests', 'special_request']
-    # reverse_lazy('bookingapp:home')
     success_url = reverse_lazy('bookingapp:home')
     template_name = 'booking_form.html'
 
@@ -39,11 +38,6 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
 
     def find_booking(self, form):
         return Booking.objects.filter(user=self.request.user, date_time=form['date_time'])
-
-
-# User redirect page after submitting booking
-def thank_you_view(request):
-    return render(request, 'thank_you_view.html')
 
 
 # Update an existing booking
