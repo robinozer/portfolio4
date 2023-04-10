@@ -1,36 +1,45 @@
 # Django Restaurant Booking System #
 
 ## Purpose of the project ##
-This is a web-based application that allows users to book a table at a restaurant. Users can create an account, log in, and then make, modify, or cancel a booking for a particular date and time.
+The Restaurant Booking System is a Full-Stack web application that allows users to make reservations at a restaurant online. Users can create an account, log in, and then make, modify, or cancel a booking for a particular date and time. The application is built using Python and Django as the MVC framework, along with HTML, CSS, and JavaScript for the Front-End. The application uses a relational database (PostgreSQL) to store and manage data about users and bookings.
+
+### External User's Goal ###
+The external user's goal is to book one or more guests for a meal in a restaurant at a particular time and date.
+
+### Site Owner's Goal ###
+The site owner's goal is to take and manage online bookings for their restaurant.
 
 
 ## Features ##
 
 ![SCREENSHOT OF FLOWCHART]()
 
-__User account creation and login system for external users__
+__User Authentication and Authorization__
+-   Users can create an account and log in to the system using username and password.
 
-__Once logged in, a user can create new bookings, modify existing bookings, and cancel bookings__
--   Prompts user to input valid form data.
+__Bookings Management__
+-   Users can create a new booking for one or more guests at a particular time and date.
+-   Users can modify or delete existing bookings.
+-   The system prevents double bookings for the same user.
 
-__Input validation__
+__Form Validation__
 -	Prompts user to input valid form data.
 
 __Admin dashboard for site owners to view and manage all bookings__
-- Admin accepts bookings, and can change and delete bookings and users.
+-   Admin accepts bookings, turning their status to True in the UI.
+-   Admin can view, change and delete bookings and users.
 
 ## Future features ##
-
-- Prevent bookings outside of the restaurant's opening hours. At the moment a user can request a booking at any time and date in the future and it's up to the admin to not accept the booking if the time is not right.
-- When a user submits invalid form input for a new booking, the form clears and they get a red error alert prompting them to enter valid information. For better UX, the old information could prepopulate the fields, meaning the user would not have to re-enter all information from scratch. This is not an issue when updating bookings, only in creating new ones.
+- Prevent bookings outside of the restaurant's opening hours. At the moment a user can request a booking at any time and date in the future, and it's up to the admin to not accept the booking if the time is not right.
+- When a user submits invalid form input for a new booking, the form clears and they get a red error alert prompting them to enter valid information. For smoother UX, the old information could prepopulate the fields, meaning the user would not have to re-enter all information from scratch. This is not an issue when updating bookings, only in creating new ones.
 - The home page can display a menu, information about the restaurant, a picture, opening hours and more advanced styling to make the experience more lively.
 - The system can allow for multiple table occupancies.
-- The feature for preventing a user from making double bookings could be developed so that the user id is used in identifying the owner of the booking. At the moment email is used for this, meaning a user who enters the same e-mail address in the booking form cannot make another booking for the same date and time as their other bookings.
+- The feature for preventing a user from making double bookings could be developed so that the user id is used in identifying the owner of the booking. At the moment email is used for this.
 
 
-## Technology ##
+## Technologies Used ##
 - [GitPod](https://gitpod.io/) was used to write, edit and commit the code, [GitHub](https://github.com/) was used for storage and version control.
-- [PyCharm](https://www.jetbrains.com/pycharm/) was used to write and test the game in early development.
+- [ElephantSQL](https://www.elephantsql.com/) was used as PostgreSQL database for the project.
 - [Heroku](https://www.heroku.com/) was used for deployment and testing.
 - [Lucidchart](https://www.lucidchart.com/pages/) was used to create a flowchart of the project.
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to create screenshot of website on different screen sizes.
@@ -40,19 +49,22 @@ __Admin dashboard for site owners to view and manage all bookings__
 
 ### Code validation ###
 - No errors were returned when passing the Python code through the [PEP8 Python Linter](https://pep8ci.herokuapp.com/)
+- No errors were returned when passing the CSS file through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator)
 
 ![SCREENSHOT OF PYTHON VALIDATION](media/screenshot-python-linter.png)
 
 ### Manual testing ###
 I have manually tested this project by doing the following:
 - Run the code through pylint using the terminal and received a rating of 10/10.
-- Entered invalid inputs as question answers (pressing Enter without any input, entering invalid numerals, entering letters and entering empty space) several times over.
+- Entering invalid inputs into the form (pressing Enter without any input, entering invalid numerals, entering empty space in the special requirements text field).
 - Used PEP8 Python validator and returned the code with no errors. Some comments regarding indentation were ignored as the validator did not recognize multi-line print statements.
-- Tested the code in my local terminal as well as the Heroku terminal.
+- Tested the code in my local development environment as well as in the Heroku deployed app.
 
 ### Test cases ###
 
 #### Quiz Introduction ####
+
+- 
 
 - Testing performed: enter the URL of deployed page and click Run Program.
 

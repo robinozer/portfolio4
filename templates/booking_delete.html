@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>Delete booking</h3>
-            <h6>Confirm to delete.</h6>
+            <p>Below is your information for this booking. Confirm to delete.</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-
+            <!--Booking form with prepopulated field as readonly-->
             <form class="signup" id="booking_form" method="post">
                 {% csrf_token %}
                 <p><label for="id_first_name">First name:</label> <input type="text" name="first_name"
@@ -19,7 +19,7 @@
                 <p><label for="id_email">Email:</label> <input type="email" name="email" value="{{ booking.email }}"
                         maxlength="254" required="" id="id_email" readonly></p>
                 
-                <p><label for="{{ form.date_time.id_for_label }}">Date time: </label><input type="datetime-local"
+                <p><label for="{{ form.date_time.id_for_label }}">Date and time: </label><input type="datetime-local"
                         name="date_time" value="{{ booking.date_time|date:'Y-m-d\TH:i' }}" required="" id="id_date_time"
                         readonly></p>
 
@@ -29,7 +29,7 @@
                 <p><label for="id_special_request">Special request:</label> <textarea name="special_request" cols="40"
                         rows="4" id="id_special_request" readonly>{{ booking.special_request }}</textarea></p>
                         
-                <button class="btn btn-signup right" type="submit">Confirm booking delete</button>
+                <button class="btn btn-outline-secondary" type="submit">Confirm delete</button>
             </form>
         </div>
     </div>

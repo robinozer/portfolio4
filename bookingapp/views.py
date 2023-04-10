@@ -52,9 +52,6 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
         response = super().form_valid(form)
         return response
 
-    def find_booking(self, form):
-        return Booking.objects.filter(user=self.request.user).filter(date_time=form['date_time'])
-
 
 class BookingDeleteView(LoginRequiredMixin, DeleteView):
     model = Booking
