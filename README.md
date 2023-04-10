@@ -24,10 +24,11 @@ __Bookings Management__
 
 __Site navigation and main structure__
 -	The website has a navigation menu clearly directing the user to each feature.
--   T
+-   The design is simple and has a header, main part where bookings, instructions and forms display, and a footer at the bottom of the page.
 
 __Form Validation__
--	Raises error when user tries to submit form with invalid input.
+-	Both forms (for creating a new booking and editing an existing one) raise errors when a user tries to submit form with invalid input.
+-   User gets a prompt to enter valid data.
 
 __Admin dashboard for site owners to view and manage all bookings__
 -   Admin accepts bookings, turning their status to True in the UI.
@@ -35,15 +36,13 @@ __Admin dashboard for site owners to view and manage all bookings__
 -   Admin can create, view, update and delete users.
 
 ## Further Features to implement ##
-- Prevent bookings outside of the restaurant's opening hours. At the moment a user can request a booking at any time and date in the future, and it's up to the admin to not accept the booking if the time is not right.
-- When a user submits invalid form input for a new booking, the form clears and they get a red error alert prompting them to enter valid information. For smoother UX, the old information could prepopulate the fields, meaning the user would not have to re-enter all information from scratch. This is only the case when creating new bookings, not updating old ones.
+
 - The home page can display a menu, information about the restaurant, a picture, opening hours and more advanced styling to make the experience more lively.
 - The system can allow for multiple table occupancies.
-- The feature for preventing a user from making double bookings could be developed so that the user id is used in identifying the owner of the booking.
 
 
 ## Technologies Used ##
-- [GitPod](https://gitpod.io/) was used to write, edit and commit the code, [GitHub](https://github.com/) was used for storage and version control.
+- [GitPod](https://gitpod.io/) was used to write, edit and commit the code, [GitHub](https://github.com/) for storage and version control.
 - [ElephantSQL](https://www.elephantsql.com/) was used as PostgreSQL database for the project.
 - [Heroku](https://www.heroku.com/) was used for deployment and testing.
 
@@ -69,12 +68,59 @@ The **Booking** table also has a unique constraint on the combination of **date_
 
 ### Manual testing ###
 I have manually tested this project by doing the following:
-- Run the code through pylint using the terminal and received a rating of 10/10.
 - Entering invalid inputs into the form (pressing Enter without any input, entering invalid numerals, entering empty space in the special requirements text field).
-- Used PEP8 Python validator and returned the code with no errors. Some comments regarding indentation were ignored as the validator did not recognize multi-line print statements.
+- Tried each feature step by step, and documented in test cases below.
 - Tested the code in my local development environment as well as in the Heroku deployed app.
 
+## Agile development and User stories ##
+Using principles of design thinking, the following goals were set for this project:
+- Make the signup process as smooth as possible
+- Make it easy for users to see and alter their bookings
+- Make it easy for manager to see and manage all changes
 
+These led to this problem statement: How do I develop a restaurant booking system that provides the functionality above to a user?
+
+The problem statement was then used to map out the features I would need. I then created user stories corresponding to these features.
+GitHub (specifically a custom user story template, issues and digital KanBan board) was used as an agile tool for creating and managing user stories, assigning them labels and tracking their progress throughout development. The board also helped with breaking down the project into sprints, keeping feature development organized (as each feature had to be created, tested and validated before the next one was created). Each sprint had an estimated time it would take to develop it, further helping keep the project systematic and organized in terms of time.
+
+-   As a site admin I can create, view, edit and delete bookings so that I can manage my restaurant
+-   As a site admin I can accept bookings so that I can choose which bookings to take
+-   As a website visitor I can register an account so that I can log in to the system
+-   As a website visitor I can create a new booking so that I have a table at the restaurant
+-   As a website visitor I can view, update and delete my bookings so that I can manage my bookings
+
+- Prevent double booking
+- prepulate fields with previous information when editing a booking
+- Don't allow bookings in past dates
+
+### Test cases ###
+
+#### User registration ####
+- User story: As a website visitor I can register an account so that I can log in to the system
+
+- Testing performed: enter the URL of deployed page in browser, click Register in nav menu, enter mock details and click 'Sign Up'.
+
+- Expected outcome: successful user registration, logs in user to platform automatically with registration.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF SIGNUP PAGE](media/signup.png)
+![SCREENSHOT OF SUCCESFUL SIGN IN](media/signup-successful.png)
+
+#### Book a table ####
+- User story: As a website visitor I can create a new booking so that I have a table at the restaurant
+
+- Testing performed: once logged in, click 'Book a table' in nav menu. 
+
+- Expected outcome: redirect user to booking form. 
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF ](media/.png)
 
 ### Code validation ###
 - No errors were returned when passing every .py file through the [PEP8 Python Linter](https://pep8ci.herokuapp.com/) (see screenshots for models.py and views.py in linter).
@@ -84,9 +130,16 @@ I have manually tested this project by doing the following:
 ![SCREENSHOT OF PYTHON VALIDATION](media/models-python-validation.png)
 ![SCREENSHOT OF PYTHON VALIDATION](media/views-python-validation.png)
 
-### Fixed bugs ###
+## Fixed bugs ##
 
-I wanted to add a feature where a user is prevented from making a double booking for the same date and time as one of their other bookings. Initially I did this by adding if statements in the form_valid function for the create and edit booking views, so that an error was raised if the same user tried to double book for the same date and time. After a system crash, I deleted the if statement and went back to my model, where I added unique_together = ('date_time', 'email') into the meta class for the model. I then added an error handler directly in the template. This way, a booking made with the same e-mail adress and the same date and time raises an error and prompts the user to enter another date. It is not perfect however, as a user could still use different e-mail addresses in the booking form and make more than one booking for the same time and date.
+I added a feature where a user is prevented from making a double booking for the same date and time as one of their other bookings. Initially I did this by adding if statements in the form_valid function for the create and edit booking views, so that an error was raised if the same user tried to double book for the same date and time. After a system crash, I deleted the if statement and went back to my model, where I added unique_together = ('date_time', 'email') into the meta class for the model. I then added an error handler directly in the template. This way, a booking made with the same e-mail adress and the same date and time raises an error and prompts the user to enter another date. It is not perfect however, as a user could still use different e-mail addresses in the booking form and make more than one booking for the same time and date.
+
+## Features to develop for better UX ##
+
+- The feature for preventing a user from making double bookings could be developed so that the user id is used in identifying the owner of the booking, instead of email.
+- Prevent bookings outside of the restaurant's opening hours: At the moment a user can request a booking at any time and date in the future, and it's up to the admin to not accept the booking if the time is not right.
+- When a user submits invalid form input for a new booking, the form clears and they get a red error alert prompting them to enter valid information. For smoother UX, the old information could prepopulate the fields, meaning the user would not have to re-enter all information from scratch. This is only the case when creating new bookings, not updating old ones.
+- Unfortunately due to time constraints these features could not be implemented in this project.
 
 ## Deployment ##
 
