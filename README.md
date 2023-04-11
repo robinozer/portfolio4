@@ -76,16 +76,21 @@ These led to this problem statement: How do I develop a restaurant booking syste
 The problem statement was then used to map out the features I would need. I then created user stories corresponding to these features.
 GitHub (specifically a custom user story template, issues and digital KanBan board) was used as an agile tool for creating and managing user stories, assigning them labels and tracking their progress throughout development. The board also helped with breaking down the project into sprints, keeping feature development organized (as each feature had to be created, tested and validated before moving on to the next one). Each sprint had an estimated time and estimated amount of work it would take to develop it, further helping to keep the project systematic and organized in terms of time.
 
--   As a site admin I can create, view, edit and delete bookings so that I can manage my restaurant
+The labels must haves, should haves, could have and won't have were used to determine the order of importance for the features, and which should be prioritized first. Since authentication and CRUD functionality were the main functions, these user stories were prioritized first as must-haves.
+
+-   As a site user I can register an account so that I can log in to the system
+-   As a site user I can create a new booking so that I have a table at the restaurant
+-   As a site user I can view, update and delete my bookings so that I can manage my bookings
+-   As a site admin I can create, view, edit and delete bookings and users so that I can manage my restaurant
 -   As a site admin I can accept bookings so that I can choose which bookings to take
--   As a website visitor I can register an account so that I can log in to the system
--   As a website visitor I can create a new booking so that I have a table at the restaurant
--   As a website visitor I can view, update and delete my bookings so that I can manage my bookings
 
-- Prevent double booking
-- prepulate fields with previous information when editing a booking
-- Don't allow bookings in past dates
+After these had been implemented, the following user stories were implemented as should haves, since they greatly improve the functionality of the application.
+-    As a site user, I want to be restricted to making only one booking at a given time and date, so that I can avoid accidentally double-booking a table
+-    As a site user, I want the fields to be pre-populated with previous information when editing a booking, so that it becomes easier for me to modify the booking details
+-    As a site user, I want to be redirected to the main page when I successfully submit a booking form, so that I can see that my changes have been saved
+-    As a site user, I want the system to prevent me from making bookings for past dates so that I can ensure that my bookings are valid
 
+Could haves are listed in section 'Features to develop for better UX'.
 
 ## Testing ##
 
@@ -98,7 +103,7 @@ I have manually tested this project by doing the following:
 ### Test cases ###
 
 #### User registration ####
-- User story: As a website visitor I can register an account so that I can log in to the system
+- User story: As a site user I can register an account so that I can log in to the system
 
 - Testing performed: enter the URL of deployed page in browser, click Register in nav menu, enter mock details and click 'Sign Up'.
 
@@ -111,18 +116,117 @@ I have manually tested this project by doing the following:
 ![SCREENSHOT OF SIGNUP PAGE](media/signup.png)
 ![SCREENSHOT OF SUCCESFUL SIGN IN](media/signup-successful.png)
 
+
 #### Book a table ####
-- User story: As a website visitor I can create a new booking so that I have a table at the restaurant
+- User story: As a site user I can create a new booking so that I have a table at the restaurant
 
-- Testing performed: once logged in, click 'Book a table' in nav menu. 
+- Testing performed: once logged in, click 'Book a table' in nav menu and enter valid form data. Click Submit booking.
 
-- Expected outcome: redirect user to booking form. 
+- Expected outcome: redirect user to main page where all bookings are listed, where the booking is visible (see the bottom left in screenshot for booking made in the other screenshot).
 
 - Result: as expected.
 
 - Test passed.
 
-![SCREENSHOT OF ](media/.png)
+![SCREENSHOT OF CREATING A BOOKING](media/make-booking.png)
+![SCREENSHOT OF BOOKING LIST](media/home-page-booking-list.png)
+
+
+#### Edit existing booking ####
+- User story: As a site user I can view, update and delete my bookings so that I can manage my bookings
+
+- Testing performed: from the home page, click on 'Edit booking' on a given booking (I used the booking just created above). Once redirected to a form prepopulated with data from the booking, I change the time from 4pm to 6pm, and change from 6 guests to 4 guests. Click 'Submit changes'.
+
+- Expected outcome: successful form submission, redirect user to main page where all bookings are listed, where I can see the changes applied to the updated booking.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF CREATING A BOOKING](media/edit-booking.png)
+![SCREENSHOT OF BOOKING LIST UPDATED](media/booking-list-updated.png)
+
+
+#### Delete booking ####
+- User story: As a site user I can view, update and delete my bookings so that I can manage my bookings
+
+- Testing performed: from the home page, click on 'Delete booking' on a given booking. Once redirected to a form prepopulated with readonly data from the booking, I click 'Confirm delete'.
+
+- Expected outcome: redirect user to main page where all bookings are listed, where I can see the booking is now deleted.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF DELETING A BOOKING](media/delete-booking.png)
+
+
+#### Admin panel ####
+- User story: As a site admin I can create, view, edit and delete bookings and users so that I can manage my restaurant
+
+- Testing performed: fill in the booking form with valid data except for date and time: there I enter a past date, and click Submit booking.
+
+- Expected outcome: System raise error and prompts me to re-enter a valid date set in the future.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF INVALID DATE INPUT](media/date-validation.png)
+
+
+#### Form date validation ####
+- User story: As a site user, I want the system to prevent me from making bookings for past dates so that I can ensure that my bookings are valid
+
+- Testing performed: fill in the booking form with valid data except for date and time: there I enter a past date, and click Submit booking.
+
+- Expected outcome: System raise error and prompts me to re-enter a valid date set in the future.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF INVALID DATE INPUT](media/date-validation.png)
+
+
+#### Prepopulate existing bookings ####
+
+- User story: As a site user, I want the fields to be pre-populated with previous information when editing a booking, so that it becomes easier for me to modify the booking details
+
+- Testing performed: from the home page click 'Edit booking' for an existing booking, and get redirected to booking edit page
+
+- Expected outcome: on the booking edit page, the form fields are populated with the details from the booking.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF PREPOPULATED FORM](media/form-prepopulated.png)
+
+#### Enter invalid form input ####
+
+- Testing performed: entering an invalid character (e.g. letter S) when answering a question.
+
+- Expected outcome: alert message prompting me to re-enter a valid option.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF INVALID ANSWER](media/screenshot-invalid-answer.png)
+
+#### Unauthorized user access ####
+
+- Testing performed: open a link to a booking made by a user (with a unique id in the URL) while in in-cognito mode.
+
+- Expected outcome: prevent access to the page and prompt the user to log in.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF UNAUTHORIZED ACCESS BLOCK](media/unauthorized-access.png)
+
 
 
 ### Code validation ###
