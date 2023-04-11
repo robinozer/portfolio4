@@ -76,6 +76,9 @@ These led to this problem statement: How do I develop a restaurant booking syste
 The problem statement was then used to map out the features I would need. I then created user stories corresponding to these features.
 GitHub (specifically a custom user story template, issues and digital KanBan board) was used as an agile tool for creating and managing user stories, assigning them labels and tracking their progress throughout development. The board also helped with breaking down the project into sprints, keeping feature development organized (as each feature had to be created, tested and validated before moving on to the next one). Each sprint had an estimated time and estimated amount of work it would take to develop it, further helping to keep the project systematic and organized in terms of time.
 
+![SCREENSHOT OF KANBAN BOARD](media/kanban-board.png)
+![SCREENSHOT OF USER STORIES WITH LABELS](media/user-stories-labels.png)
+
 The labels must haves, should haves, could have and won't have were used to determine the order of importance for the features, and which should be prioritized first. Since authentication and CRUD functionality were the main functions, these user stories were prioritized first as must-haves.
 
 -   As a site user I can register an account so that I can log in to the system
@@ -118,6 +121,8 @@ I have manually tested this project by doing the following:
 - Entering invalid inputs into the form (pressing Enter without any input, entering invalid numerals, entering empty space in the special requirements text field).
 - Tried each feature step by step, and documented in test cases below.
 - Tested the code in my local development environment as well as in the Heroku deployed app.
+
+- The app has been tested for various screen sizes and is responsive on mobile, desktop and tablet.
 
 ### Test cases ###
 
@@ -299,6 +304,7 @@ I added a feature where a user is prevented from making a double booking for the
 - The feature for preventing a user from making double bookings could be developed so that the user id is used in identifying the owner of the booking, instead of email.
 - Prevent bookings outside of the restaurant's opening hours: At the moment a user can request a booking at any time and date in the future, and it's up to the admin to not accept the booking if the time is not right.
 - When a user submits invalid form input for a new booking, the form clears and they get a red error alert prompting them to enter valid information. For smoother UX, the old information could prepopulate the fields, meaning the user would not have to re-enter all information from scratch. This is only the case when creating new bookings, not updating old ones.
+- Automatic logout after a period of inactivity should be implemented to increase safety.
 - Unfortunately due to time constraints these features could not be implemented in this project.
 
 ## Deployment ##
@@ -320,7 +326,7 @@ Heroku was used to deploy the website. The following steps were used:
 - After creating an account, create a new app and navigate to the Settings tab.
 - In Config Vars, click 'Reveal Config Vars' and add config vars for secret key, database url (from ElephantSQL), Heroku PostreSQL and another with key 'PORT' and value '8000'. 
 - Config var DISABLE_COLLECTSTATIC set to value of 1 was used during project development and removed in final deployment.
-- In Deploy, connect to GitHub repository and deploy branch to main.
+- Navigate to Deploy in menu, connect to GitHub repository and deploy branch to main.
 
 ## Attaching PostgreSQL database to the project ##
 In settings.py:
