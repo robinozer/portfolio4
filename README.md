@@ -161,32 +161,63 @@ I have manually tested this project by doing the following:
 ![SCREENSHOT OF DELETING A BOOKING](media/delete-booking.png)
 
 
-#### Admin panel ####
+#### Admin panel for users ####
 - User story: As a site admin I can create, view, edit and delete bookings and users so that I can manage my restaurant
 
-- Testing performed: fill in the booking form with valid data except for date and time: there I enter a past date, and click Submit booking.
+- Testing performed: log in to the admin panel (/admin) to access main panel. Click on Users to select a User to view and change. Click on the User name to edit the details and confirm to save. Then check the box next to the name, select 'Delete selected users' and confirm to delete the user.
 
-- Expected outcome: System raise error and prompts me to re-enter a valid date set in the future.
-
-- Result: as expected.
-
-- Test passed.
-
-![SCREENSHOT OF INVALID DATE INPUT](media/date-validation.png)
-
-
-#### Form date validation ####
-- User story: As a site user, I want the system to prevent me from making bookings for past dates so that I can ensure that my bookings are valid
-
-- Testing performed: fill in the booking form with valid data except for date and time: there I enter a past date, and click Submit booking.
-
-- Expected outcome: System raise error and prompts me to re-enter a valid date set in the future.
+- Expected outcome: User updated details and then deleted from the system.
 
 - Result: as expected.
 
 - Test passed.
 
-![SCREENSHOT OF INVALID DATE INPUT](media/date-validation.png)
+![SCREENSHOT OF INVALID DATE INPUT](media/admin-panel-view.png)
+![SCREENSHOT OF INVALID DATE INPUT](media/admin-user-delete.png)
+
+
+#### Admin panel for bookings ####
+- User story: As a site admin I can create, view, edit and delete bookings and users so that I can manage my restaurant
+
+- Testing performed: log in to the admin panel (/admin) to access main panel. Click on Bookings to select a Booking to view and change. Click on the name of the booking  to edit and save changes. Then check the box next to the booking, select 'Delete selected bookings' and confirm to delete.
+
+- Expected outcome: Booking updated details and then deleted from the system.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF INVALID DATE INPUT](media/admin-change-booking.png)
+![SCREENSHOT OF INVALID DATE INPUT](media/admin-booking-delete.png)
+
+
+#### Admin accepts bookings ####
+- User story: As a site admin I can accept bookings so that I can choose which bookings to take
+
+- Testing performed: log in to the admin panel (/admin) to access main panel. Click on Bookings and select a booking by checking the box next to  it, select 'Accept booking' as the action and confirm to accept. Note: when a booking is created, it automatically sets accepted as false. The addmin logs in and accepts it to confirm the booking.
+
+- Expected outcome: The booking updates to accepted.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF INVALID DATE INPUT](media/admin-accept-booking.png)
+
+
+#### Prevent double bookings ####
+
+- User story: As a site user, I want to be restricted to making only one booking at a given time and date, so that I can avoid accidentally double-booking a table
+
+- Testing performed: create new booking with the same email and date/time as an existing booking from the booking list. Click 'Submit booking'.
+
+- Expected outcome: booking not accepted. Alert message prompting me to re-enter a valid option.
+
+- Result: as expected.
+
+- Test passed.
+
+![SCREENSHOT OF INVALID ANSWER](media/double-booking-alert.png)
 
 
 #### Prepopulate existing bookings ####
@@ -203,17 +234,20 @@ I have manually tested this project by doing the following:
 
 ![SCREENSHOT OF PREPOPULATED FORM](media/form-prepopulated.png)
 
-#### Enter invalid form input ####
 
-- Testing performed: entering an invalid character (e.g. letter S) when answering a question.
+#### Form date validation ####
+- User story: As a site user, I want the system to prevent me from making bookings for past dates so that I can ensure that my bookings are valid
 
-- Expected outcome: alert message prompting me to re-enter a valid option.
+- Testing performed: fill in the booking form with valid data except for date and time: there I enter a past date, and click Submit booking.
+
+- Expected outcome: System raise error and prompts me to re-enter a valid date set in the future.
 
 - Result: as expected.
 
 - Test passed.
 
-![SCREENSHOT OF INVALID ANSWER](media/screenshot-invalid-answer.png)
+![SCREENSHOT OF INVALID DATE INPUT](media/date-validation.png)
+
 
 #### Unauthorized user access ####
 
