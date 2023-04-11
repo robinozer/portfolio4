@@ -92,6 +92,25 @@ After these had been implemented, the following user stories were implemented as
 
 Could haves are listed in section 'Features to develop for better UX'.
 
+## UX Design ##
+
+![SCREENSHOT OF SIMPLE FLOWCHART](media/flowchart.png)
+
+In terms of UX design, the chart above represents the key entities and their relationships. This chart was created early on and used as a blueprint for designing a user-friendly interface that supports the key actions and workflows that users will need to perform when using the system. 
+
+The User and Booking tables are the main entities that users will interact with, as they will use the system to manage their bookings.
+
+The flowchart starts with the home page where the user can either register a new account or book a table. Once the user registers a new account, they can log in and create a new booking. After creating a booking, they can edit or delete it as well. After the user successfully creates, edits, or deletes a booking, they will be redirected back to the home page.
+
+For the admin, they will have a dashboard where they can create, view, edit, and delete bookings and users. They can also accept or reject bookings from the users. After accepting or rejecting a booking, they will be redirected back to the admin dashboard.
+
+When designing the user interface, it was important to consider how users would interact with these entities and their associated fields. For example, when creating a new booking, users will need to enter information such as their name, email, desired date and time, and number of guests. The user interface should make it clear which fields are required and provide helpful feedback if any required fields are missing or invalid.
+
+Similarly, when viewing or updating a booking, users will need to see all of the relevant information about the booking, such as the date and time, number of guests, and any special requests. The user interface should make it easy to view and update this information, while also providing clear feedback if any changes cannot be made (e.g. if the booking is in the past or there is already a booking for that time and date).
+
+The design is clean and simple, with neutral colors and the fonts Roboto/Lato from Google. The intention was to keep focus on the main functionalities. The section 'Features to develop for better UX' shows additional functionalities that could be added to improve the user experience further. 
+
+
 ## Testing ##
 
 ### Manual testing ###
@@ -114,7 +133,7 @@ I have manually tested this project by doing the following:
 - Test passed.
 
 ![SCREENSHOT OF SIGNUP PAGE](media/signup.png)
-![SCREENSHOT OF SUCCESFUL SIGN IN](media/signup-successful.png)
+![SCREENSHOT OF SUCCESSFUL SIGN IN](media/signup-successful.png)
 
 
 #### Book a table ####
@@ -150,7 +169,7 @@ I have manually tested this project by doing the following:
 #### Delete booking ####
 - User story: As a site user I can view, update and delete my bookings so that I can manage my bookings
 
-- Testing performed: from the home page, click on 'Delete booking' on a given booking. Once redirected to a form prepopulated with readonly data from the booking, I click 'Confirm delete'.
+- Testing performed: from the home page, click on 'Delete booking' on a given booking. Once redirected to a form prepopulated with read-only data from the booking, I click 'Confirm delete'.
 
 - Expected outcome: redirect user to main page where all bookings are listed, where I can see the booking is now deleted.
 
@@ -194,7 +213,7 @@ I have manually tested this project by doing the following:
 #### Admin accepts bookings ####
 - User story: As a site admin I can accept bookings so that I can choose which bookings to take
 
-- Testing performed: log in to the admin panel (/admin) to access main panel. Click on Bookings and select a booking by checking the box next to  it, select 'Accept booking' as the action and confirm to accept. Note: when a booking is created, it automatically sets accepted as false. The addmin logs in and accepts it to confirm the booking.
+- Testing performed: log in to the admin panel (/admin) to access main panel. Click on Bookings and select a booking by checking the box next to  it, select 'Accept booking' as the action and confirm to accept. Note: when a booking is created, it automatically sets accepted as false. The admin logs in and accepts it to confirm the booking.
 
 - Expected outcome: The booking updates to accepted.
 
@@ -273,7 +292,7 @@ I have manually tested this project by doing the following:
 
 ## Fixed bugs ##
 
-I added a feature where a user is prevented from making a double booking for the same date and time as one of their other bookings. Initially I did this by adding if statements in the form_valid function for the create and edit booking views, so that an error was raised if the same user tried to double book for the same date and time. After a system crash, I deleted the if statement and went back to my model, where I added unique_together = ('date_time', 'email') into the meta class for the model. I then added an error handler directly in the template. This way, a booking made with the same e-mail adress and the same date and time raises an error and prompts the user to enter another date. It is not perfect however, as a user could still use different e-mail addresses in the booking form and make more than one booking for the same time and date.
+I added a feature where a user is prevented from making a double booking for the same date and time as one of their other bookings. Initially I did this by adding if statements in the form_valid function for the create and edit booking views, so that an error was raised if the same user tried to double book for the same date and time. After a system crash, I deleted the if statement and went back to my model, where I added unique_together = ('date_time', 'email') into the meta class for the model. I then added an error handler directly in the template. This way, a booking made with the same e-mail address and the same date and time raises an error and prompts the user to enter another date. It is not perfect however, as a user could still use different e-mail addresses in the booking form and make more than one booking for the same time and date.
 
 ## Features to develop for better UX ##
 
@@ -294,7 +313,7 @@ https://github.com/Code-Institute-Org/python-essentials-template
 - The repository can be accessed through following link: https://github.com/robinozer/PythonProject.git
 
 ### Via ElephantSQL ###
-- After loggin in, create new instance, give it a name and select region. Click 'Review' and Confirm new instance. Use URL in config vars in Heroku(see below) and in project env.py file.
+- After logging in, create new instance, give it a name and select region. Click 'Review' and Confirm new instance. Use URL in config vars in Heroku(see below) and in project env.py file.
 
 ### Via Heroku ###
 Heroku was used to deploy the website. The following steps were used:
