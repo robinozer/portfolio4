@@ -4,6 +4,8 @@
 ## Purpose of the project ##
 The Restaurant Booking System is a Full-Stack web application that allows users to make reservations at a restaurant online. Users can create an account, log in, and then make, modify, or cancel a booking for a particular date and time. The application is built using Python and Django as the MVC framework, along with HTML, CSS, and JavaScript for the Front-End. The application uses a relational database (PostgreSQL) to store and manage data about users and bookings.
 
+Live link to the website: https://portfolio4-5f0c273e0189.herokuapp.com/
+
 ### External User's Goal ###
 The external user's goal is to book one or more guests for a meal in a restaurant at a particular time and date.
 
@@ -316,7 +318,7 @@ https://github.com/Code-Institute-Org/python-essentials-template
 - Enter repository name, make the repository public and click “Create repository from template”.
 - Click the green GitPod button, wait a moment for the workspace to open. All work was committed in GitPod.
 
-- The repository can be accessed through following link: https://github.com/robinozer/PythonProject.git
+- The repository can be accessed through following link: https://github.com/robinozer/portfolio4.git
 
 ### Via ElephantSQL ###
 - After logging in, create new instance, give it a name and select region. Click 'Review' and Confirm new instance. Use URL in config vars in Heroku(see below) and in project env.py file.
