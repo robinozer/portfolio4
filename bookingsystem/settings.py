@@ -32,7 +32,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['portfolio4app.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['portfolio4app.herokuapp.com', 'localhost', '.herokuapp.com']
 
 
 # Application definition
